@@ -1,5 +1,22 @@
 <resources>
     <string name="app_name">DogAdoptionFirst</string>
+
+
+    <!-- Generic -->
+    <string name="accept">Accept</string>
+    <string name="cancel">Cancel</string>
+    <string name="understood">Understood</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+
+    <!-- Onboarding -->
+    <string name="onboarding.page0.title">Welcome to DogAdoptionFirst</string>
+    <string name="onboarding.page0.body">The App that helps you adopt a dog in need of love</string>
+    <string name="onboarding.page1.title">Do you want to adopt a dog or several?</string>
+    <string name="onboarding.page1.body">Log in with your account and start adopting a dog, you can also make an appointment to get to know the puppy more</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

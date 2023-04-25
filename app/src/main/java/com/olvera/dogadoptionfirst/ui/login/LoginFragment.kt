@@ -1,4 +1,4 @@
-package com.olvera.dogadoptionfirst.ui
+package com.olvera.dogadoptionfirst.ui.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.olvera.dogadoptionfirst.R
 
 class LoginFragment : Fragment() {
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
