@@ -1,5 +1,6 @@
 package com.olvera.dogadoptionfirst.ui.onboarding
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
@@ -9,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.olvera.dogadoptionfirst.R
 import com.olvera.dogadoptionfirst.databinding.ActivityOnBoardingBinding
+import com.olvera.dogadoptionfirst.ui.login.LoginActivity
 import com.olvera.dogadoptionfirst.ui.onboarding.pager.OnBoardingPageAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -57,6 +59,9 @@ class OnBoardingActivity : AppCompatActivity() {
         binding.buttonNext.setOnClickListener {
             if (selection == viewModel.pages - 1) {
                 //PreferencesProvider.set(this, PreferencesKey.ONBOARDING, true)
+                // Pasar a la siguiente pantalla (Login)
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
                 finish()
             } else {
                 selection += 1

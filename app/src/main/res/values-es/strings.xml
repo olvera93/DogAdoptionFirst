@@ -16,6 +16,9 @@
     <string name="onboarding.page1.title">¿Quieres adoptar un perro o varios?</string>
     <string name="onboarding.page1.body">Inicia sesión con tu cuenta y empieza a adoptar un perro, también puedes pedir cita para conocer más al cachorro</string>
 
+    <!-- Login -->
+    <string name="sing_in">Iniciar Sesión</string>
+    <string name="username">Nombre de usuario</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -49,6 +49,8 @@ dependencies {
 
     // Hilt
     implementation "com.google.dagger:hilt-android:2.44.2"
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
     kapt "com.google.dagger:hilt-compiler:2.44.2"
 
     // View Pager
