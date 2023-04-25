@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">DogAdoptionFirst</string>
+
+
+    <!-- Generic -->
+    <string name="accept">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="understood">Comprendido</string>
+    <string name="next">Siguiente</string>
+    <string name="previous">Previo</string>
+
+
+    <!-- Onboarding -->
+    <string name="onboarding.page0.title">Bienvenido a DogAdoptionFirst</string>
+    <string name="onboarding.page0.body">La App que te ayuda a adoptar un perro necesitado de amor</string>
+    <string name="onboarding.page1.title">¿Quieres adoptar un perro o varios?</string>
+    <string name="onboarding.page1.body">Inicia sesión con tu cuenta y empieza a adoptar un perro, también puedes pedir cita para conocer más al cachorro</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
