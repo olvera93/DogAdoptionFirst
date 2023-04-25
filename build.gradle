@@ -2,6 +2,7 @@ buildscript {
     ext {
         view_pager_version = "1.0.0"
         glide_version = "4.9.0"
+        lottie_version = "3.4.0"
     }
 
     repositories {
