@@ -17,7 +17,7 @@
     <string name="onboarding.page1.body">Log in with your account and start adopting a dog, you can also make an appointment to get to know the puppy more</string>
 
     <!-- Login -->
-    <string name="sing_in">Sing in</string>
+    <string name="sign_in">Sign in</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="remember_me">Remember me</string>
@@ -26,6 +26,17 @@
     <string name="new_user">New User?</string>
     <string name="invalid_username">Invalid username</string>
     <string name="invalid_password">Invalid password</string>
+
+    <!-- Register -->
+    <string name="sign_up">Register</string>
+    <string name="email">Email</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="sign_up_info">Create account by filling the form below.</string>
+    <string name="phone_number">Phone number</string>
+    <string name="email_error">Please insert a valid email.</string>
+    <string name="password_error">Your password should have at least six digits and include one digit, one lower case letter and one upper case letter.</string>
+    <string name="password_match_error">Passwords do not match.</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -70,4 +81,16 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
 </resources>

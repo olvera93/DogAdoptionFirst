@@ -16,6 +16,9 @@ interface UserDao {
     @Query("SELECT * FROM users WHERE userEmail = :email")
     suspend fun getUser(email: String): User
 
+    @Query("SELECT COUNT(*) FROM users WHERE userEmail = :email")
+    fun getUserCount(email: String): Int
+
     @Delete
     suspend fun deleteUser(user: User)
 }
