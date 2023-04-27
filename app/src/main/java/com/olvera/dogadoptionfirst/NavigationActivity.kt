@@ -1,5 +1,6 @@
 package com.olvera.dogadoptionfirst
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -10,7 +11,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.olvera.dogadoptionfirst.config.AppPrefs
 import com.olvera.dogadoptionfirst.databinding.ActivityNavigationBinding
+import com.olvera.dogadoptionfirst.ui.login.LoginActivity
+import com.olvera.dogadoptionfirst.ui.onboarding.OnBoardingActivity
 
 class NavigationActivity : AppCompatActivity() {
 
@@ -23,11 +27,22 @@ class NavigationActivity : AppCompatActivity() {
         binding = ActivityNavigationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        if (AppPrefs(this).isFirstTimeLaunch()) {
+            startActivity(Intent(this, OnBoardingActivity::class.java))
+            finish()
+        } else {
+            AppPrefs(this@NavigationActivity).setFirstTimeLaunch(false)
+        }
+
         setSupportActionBar(binding.appBarNavigation.toolbar)
 
         binding.appBarNavigation.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+            // Cerrar sesión
+            AppPrefs(this@NavigationActivity).setFirstTimeLaunch(true)
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView

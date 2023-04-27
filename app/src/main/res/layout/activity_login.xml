@@ -14,7 +14,7 @@
         android:text="@string/sign_in"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/usernameEt"
+        app:layout_constraintStart_toStartOf="@+id/emailEt"
         app:layout_constraintTop_toTopOf="parent"/>
 
 
@@ -23,12 +23,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:paddingBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/usernameEt"
+        app:layout_constraintBottom_toTopOf="@+id/emailEt"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="@+id/usernameEt"
+        app:layout_constraintEnd_toEndOf="@+id/emailEt"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintVertical_bias="0.1"
-        app:layout_constraintStart_toStartOf="@+id/usernameEt"
+        app:layout_constraintStart_toStartOf="@+id/emailEt"
         app:layout_constraintTop_toBottomOf="@+id/titleTv"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintWidth_percent="0.5"
@@ -37,7 +37,7 @@
         app:lottie_rawRes="@raw/data" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/usernameEt"
+        android:id="@+id/emailEt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -53,10 +53,11 @@
         app:layout_constraintVertical_bias="0.2">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailText"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:hint="@string/username"
-            android:inputType="text"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
             android:paddingStart="4dp"
             android:paddingEnd="4dp" />
 
@@ -70,11 +71,12 @@
         android:padding="8dp"
         android:layout_marginTop="16dp"
         app:hintTextAppearance="@style/TextAppearance.AppCompat"
-        app:layout_constraintEnd_toEndOf="@+id/usernameEt"
-        app:layout_constraintStart_toStartOf="@+id/usernameEt"
-        app:layout_constraintTop_toBottomOf="@+id/usernameEt">
+        app:layout_constraintEnd_toEndOf="@+id/emailEt"
+        app:layout_constraintStart_toStartOf="@+id/emailEt"
+        app:layout_constraintTop_toBottomOf="@+id/emailEt">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordText"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:hint="@string/password"

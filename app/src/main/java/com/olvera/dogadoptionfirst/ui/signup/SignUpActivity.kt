@@ -4,16 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
-import androidx.core.widget.addTextChangedListener
-import com.olvera.dogadoptionfirst.NavigationActivity
 import com.olvera.dogadoptionfirst.R.string as AppText
 import com.olvera.dogadoptionfirst.databinding.ActivitySignUpBinding
 import com.olvera.dogadoptionfirst.model.domain.User
+import com.olvera.dogadoptionfirst.ui.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -93,12 +91,10 @@ class SignUpActivity : AppCompatActivity() {
             })
 
             signUpBtn.setOnClickListener {
-                // verificamos que el usuario no exista en la base de datos
                 if (viewModel.getUser(emailText.text.toString()) > 0) {
                     Toast.makeText(this@SignUpActivity, "ya existe", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 } else {
-                    // si el usuario no existe, lo creamos
                     val user = User(
                         userName = usernameText.text.toString(),
                         userEmail = emailText.text.toString(),
@@ -108,7 +104,7 @@ class SignUpActivity : AppCompatActivity() {
                     viewModel.addUser(user)
                     Toast.makeText(this@SignUpActivity, "usuario creado", Toast.LENGTH_SHORT)
                         .show()
-                    val intent = Intent(this@SignUpActivity, NavigationActivity::class.java)
+                    val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
                     startActivity(intent)
                 }
             }

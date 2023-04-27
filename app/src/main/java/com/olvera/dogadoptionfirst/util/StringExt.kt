@@ -19,3 +19,8 @@ fun String.isValidPassword(): Boolean {
 fun String.passwordMatches(repeated: String): Boolean {
     return this == repeated
 }
+
+fun String.isEmptyTextEdit(): Boolean {
+    return this.isEmpty()
+}
+

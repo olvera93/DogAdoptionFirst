@@ -20,17 +20,8 @@
             android:theme="@style/Theme.DogAdoptionFirst" />
         <activity
             android:name=".NavigationActivity"
-            android:exported="false"
-            android:label="@string/title_activity_navigation"
-            android:theme="@style/Theme.DogAdoptionFirst.NoActionBar" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="false"
-            android:label="@string/title_activity_login"
-            android:theme="@style/Theme.DogAdoptionFirst" />
-        <activity
-            android:name=".ui.onboarding.OnBoardingActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.DogAdoptionFirst.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,8 +29,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.DogAdoptionFirst" />
+        <activity
+            android:name=".ui.onboarding.OnBoardingActivity"
+            android:exported="false"/>
+        <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="false" />
     </application>
 
 </manifest>

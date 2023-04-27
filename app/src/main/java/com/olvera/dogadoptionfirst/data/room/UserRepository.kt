@@ -11,13 +11,17 @@ interface UserRepository {
     suspend fun getUser(email: String): User
     suspend fun getUserCount(email: String): Int
 
+    suspend fun getUserByEmailAndPassword(email: String, password: String): User
+
 }
 
 class UserRepositoryImpl @Inject constructor(
     private val userDao: UserDao
-): UserRepository {
+) : UserRepository {
     override suspend fun insertUser(user: User) = userDao.insertUser(user)
     override suspend fun getUser(email: String): User = userDao.getUser(email)
     override suspend fun getUserCount(email: String): Int = userDao.getUserCount(email)
+    override suspend fun getUserByEmailAndPassword(email: String, password: String): User =
+        userDao.getUserByEmailAndPassword(email, password)
 }
 
