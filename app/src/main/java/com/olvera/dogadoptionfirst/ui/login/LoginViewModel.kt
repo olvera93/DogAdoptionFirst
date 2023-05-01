@@ -1,7 +1,7 @@
 package com.olvera.dogadoptionfirst.ui.login
 
 import com.olvera.dogadoptionfirst.DogAdoptionViewModel
-import com.olvera.dogadoptionfirst.data.room.UserRepository
+import com.olvera.dogadoptionfirst.data.remote.DogAdoptionRepository
 import com.olvera.dogadoptionfirst.model.domain.LoginUiState
 import com.olvera.dogadoptionfirst.util.isEmptyTextEdit
 import com.olvera.dogadoptionfirst.util.isValidEmail
@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val userRepository: UserRepository
+    private val dogAdoptionRepository: DogAdoptionRepository
 ) : DogAdoptionViewModel() {
 
     var uiState = LoginUiState()
@@ -33,7 +33,7 @@ class LoginViewModel @Inject constructor(
 
     fun getUserByEmailAndPassword(email: String, password: String, callback: (Boolean) -> Unit) {
         launchCatching {
-            val user = userRepository.getUserByEmailAndPassword(email, password)
+            val user = dogAdoptionRepository.getUserByEmailAndPassword(email, password)
             callback(user != null)
         }
     }

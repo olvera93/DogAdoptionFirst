@@ -1,10 +1,11 @@
-package com.olvera.dogadoptionfirst.data.room
+package com.olvera.dogadoptionfirst.data.remote
 
+import com.olvera.dogadoptionfirst.data.room.UserDao
 import com.olvera.dogadoptionfirst.model.domain.User
 import javax.inject.Inject
 
 
-interface UserRepository {
+interface DogAdoptionRepository{
 
     // Room
     suspend fun insertUser(user: User)
@@ -15,9 +16,9 @@ interface UserRepository {
 
 }
 
-class UserRepositoryImpl @Inject constructor(
+class DogAdoptionRepositoryImpl @Inject constructor(
     private val userDao: UserDao
-) : UserRepository {
+) : DogAdoptionRepository {
     override suspend fun insertUser(user: User) = userDao.insertUser(user)
     override suspend fun getUser(email: String): User = userDao.getUser(email)
     override suspend fun getUserCount(email: String): Int = userDao.getUserCount(email)

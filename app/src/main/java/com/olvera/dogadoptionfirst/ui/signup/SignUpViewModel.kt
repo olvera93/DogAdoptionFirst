@@ -1,9 +1,8 @@
 package com.olvera.dogadoptionfirst.ui.signup
 
 
-import android.util.Log
 import com.olvera.dogadoptionfirst.DogAdoptionViewModel
-import com.olvera.dogadoptionfirst.data.room.UserRepository
+import com.olvera.dogadoptionfirst.data.remote.DogAdoptionRepository
 import com.olvera.dogadoptionfirst.model.domain.SignUpUiState
 import com.olvera.dogadoptionfirst.model.domain.User
 import com.olvera.dogadoptionfirst.util.isValidEmail
@@ -15,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SignUpViewModel @Inject constructor(
-    private val userRepository: UserRepository
+    private val dogAdoptionRepository: DogAdoptionRepository
 ) : DogAdoptionViewModel() {
 
 
@@ -57,14 +56,14 @@ class SignUpViewModel @Inject constructor(
 
     fun addUser(user: User) {
         launchCatching {
-            userRepository.insertUser(user)
+            dogAdoptionRepository.insertUser(user)
         }
     }
 
     fun getUser(email: String): Int {
         var userCount = 0
         launchCatching {
-            userCount = userRepository.getUserCount(email)
+            userCount = dogAdoptionRepository.getUserCount(email)
         }
         return userCount
 
