@@ -43,6 +43,12 @@
     <string name="empty_email">Email is empty</string>
     <string name="empty_confirm_password">Confirm password is empty</string>
     <string name="empty_phone_number">Phone number is empty</string>
+    <string name="empty_name">Name is empty</string>
+
+    <string name="user_created">User created</string>
+    <string name="user_already_exists">User already exists</string>
+    <string name="user_not_exists">User does not exist</string>
+    <string name="suscessful_login">Successful login</string>
 
 
 

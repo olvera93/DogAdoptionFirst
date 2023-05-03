@@ -26,9 +26,24 @@ class AppPrefs(context: Context) {
 
     }
 
+    fun setUserName(name: String) {
+        prefsEditor.putString("name", name)
+        prefsEditor.commit()
+    }
+
+    fun getUserName(): String? {
+        return prefs.getString("name", "")
+    }
+
+    fun setEmail(email: String) {
+        prefsEditor.putString("email", email)
+        prefsEditor.commit()
+    }
+
+    fun getEmail(): String? {
+        return prefs.getString("email", "")
+    }
     companion object {
-
-
         private const val PREF_NAME = "email"
         private const val IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch"
     }

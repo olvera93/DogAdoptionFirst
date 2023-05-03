@@ -2,6 +2,7 @@ package com.olvera.dogadoptionfirst
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -56,6 +57,12 @@ class NavigationActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val userEmail = AppPrefs(this).getEmail()
+        val userName = AppPrefs(this).getUserName()
+        navView.getHeaderView(0).findViewById<android.widget.TextView>(R.id.emailTV).text = userEmail
+        navView.getHeaderView(0).findViewById<android.widget.TextView>(R.id.userTV).text = userName
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

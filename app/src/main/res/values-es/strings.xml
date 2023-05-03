@@ -44,6 +44,14 @@
     <string name="empty_email">El correo electronico esta vacío</string>
     <string name="empty_confirm_password">Confirmar contraseña esta vacío</string>
     <string name="empty_phone_number">Número de teléfono esta vacío</string>
+    <string name="empty_name">El usuario esta vacío</string>
+
+
+    <string name="user_created">Usuario creado</string>
+    <string name="user_already_exists">Usuario ya existe</string>
+    <string name="user_not_exists">Usuario no existe</string>
+    <string name="suscessful_login">Inicio de sesión correcto</string>
+
 
 
     <!-- TODO: Remove or change this placeholder text -->

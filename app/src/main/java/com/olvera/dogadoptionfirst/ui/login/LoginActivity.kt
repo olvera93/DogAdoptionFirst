@@ -12,7 +12,6 @@ import com.olvera.dogadoptionfirst.NavigationActivity
 import com.olvera.dogadoptionfirst.R
 import com.olvera.dogadoptionfirst.config.AppPrefs
 import com.olvera.dogadoptionfirst.databinding.ActivityLoginBinding
-import com.olvera.dogadoptionfirst.ui.onboarding.OnBoardingActivity
 import com.olvera.dogadoptionfirst.ui.signup.SignUpActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,15 +27,11 @@ class LoginActivity : AppCompatActivity() {
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
 
-
-
         setContentView(binding.root)
 
         setup()
 
     }
-
-
 
     private fun setup() {
 
@@ -89,17 +84,23 @@ class LoginActivity : AppCompatActivity() {
                     passwordText.text.toString()
                 ) { userExist ->
                     if (!userExist) {
-                        Toast.makeText(this@LoginActivity, "No existe", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@LoginActivity,
+                            getText(R.string.user_not_exists),
+                            Toast.LENGTH_SHORT
+                        ).show()
                         return@getUserByEmailAndPassword
                     } else {
                         Toast.makeText(
                             this@LoginActivity,
-                            "Existe y puedes usarlo",
+                            getText(R.string.suscessful_login),
                             Toast.LENGTH_SHORT
                         )
                             .show()
                         val intent = Intent(this@LoginActivity, NavigationActivity::class.java)
                         startActivity(intent)
+                        AppPrefs(this@LoginActivity).setEmail(emailText.text.toString())
+                        finish()
                     }
                 }
             }
