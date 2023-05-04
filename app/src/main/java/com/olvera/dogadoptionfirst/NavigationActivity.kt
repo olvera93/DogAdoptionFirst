@@ -16,7 +16,9 @@ import com.olvera.dogadoptionfirst.config.AppPrefs
 import com.olvera.dogadoptionfirst.databinding.ActivityNavigationBinding
 import com.olvera.dogadoptionfirst.ui.login.LoginActivity
 import com.olvera.dogadoptionfirst.ui.onboarding.OnBoardingActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NavigationActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration

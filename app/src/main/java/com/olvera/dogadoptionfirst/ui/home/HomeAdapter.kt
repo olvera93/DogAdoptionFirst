@@ -11,8 +11,9 @@ import com.olvera.dogadoptionfirst.databinding.ItemDogBinding
 import com.olvera.dogadoptionfirst.model.domain.Dog
 
 class HomeAdapter(
-    private val dogList: List<Dog>
-): RecyclerView.Adapter<HomeAdapter.HomeViewHolder>(){
+    private val dogList: List<Dog>,
+    private val onDogClick: (Dog) -> Unit
+) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -22,21 +23,23 @@ class HomeAdapter(
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        holder.bind(dogList[position])
+        holder.view
+        holder.bind(dogList[position], onDogClick)
     }
 
     override fun getItemCount(): Int = dogList.size
 
-    class HomeViewHolder(var view: ItemDogBinding): RecyclerView.ViewHolder(view.root) {
-        fun bind(dog: Dog) {
+    class HomeViewHolder(var view: ItemDogBinding) : RecyclerView.ViewHolder(view.root) {
+        fun bind(dog: Dog, onDogClick: (Dog) -> Unit) {
             view.tvDogName.text = dog.name
             Glide.with(view.root.context)
                 .load(dog.imageUrl)
                 .into(view.imageDog)
+            view.root.setOnClickListener {
+                onDogClick(dog)
+            }
         }
     }
-
-
 
 
 }

@@ -69,6 +69,25 @@ class SignUpViewModel @Inject constructor(
 
     }
 
+    fun emailIsEmpty(email: String): Boolean {
+        return email.isEmpty()
+    }
+
+    fun passwordIsEmpty(password: String): Boolean {
+        return password.isEmpty()
+    }
+
+    fun repeatPasswordIsEmpty(repeatPassword: String): Boolean {
+        return repeatPassword.isEmpty()
+    }
+
+    fun phoneIsEmpty(phone: String): Boolean {
+        return phone.isEmpty()
+    }
+
+    fun nameIsEmpty(name: String): Boolean {
+        return name.isEmpty()
+    }
 
     fun onCheckEmail(email: String): Boolean {
         return email.isValidEmail()
