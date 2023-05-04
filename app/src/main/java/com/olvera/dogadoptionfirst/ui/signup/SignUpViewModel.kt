@@ -1,9 +1,8 @@
 package com.olvera.dogadoptionfirst.ui.signup
 
 
-import android.util.Log
 import com.olvera.dogadoptionfirst.DogAdoptionViewModel
-import com.olvera.dogadoptionfirst.data.room.UserRepository
+import com.olvera.dogadoptionfirst.data.remote.DogAdoptionRepository
 import com.olvera.dogadoptionfirst.model.domain.SignUpUiState
 import com.olvera.dogadoptionfirst.model.domain.User
 import com.olvera.dogadoptionfirst.util.isValidEmail
@@ -15,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SignUpViewModel @Inject constructor(
-    private val userRepository: UserRepository
+    private val dogAdoptionRepository: DogAdoptionRepository
 ) : DogAdoptionViewModel() {
 
 
@@ -57,19 +56,38 @@ class SignUpViewModel @Inject constructor(
 
     fun addUser(user: User) {
         launchCatching {
-            userRepository.insertUser(user)
+            dogAdoptionRepository.insertUser(user)
         }
     }
 
     fun getUser(email: String): Int {
         var userCount = 0
         launchCatching {
-            userCount = userRepository.getUserCount(email)
+            userCount = dogAdoptionRepository.getUserCount(email)
         }
         return userCount
 
     }
 
+    fun emailIsEmpty(email: String): Boolean {
+        return email.isEmpty()
+    }
+
+    fun passwordIsEmpty(password: String): Boolean {
+        return password.isEmpty()
+    }
+
+    fun repeatPasswordIsEmpty(repeatPassword: String): Boolean {
+        return repeatPassword.isEmpty()
+    }
+
+    fun phoneIsEmpty(phone: String): Boolean {
+        return phone.isEmpty()
+    }
+
+    fun nameIsEmpty(name: String): Boolean {
+        return name.isEmpty()
+    }
 
     fun onCheckEmail(email: String): Boolean {
         return email.isValidEmail()

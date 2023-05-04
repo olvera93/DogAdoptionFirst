@@ -2,6 +2,7 @@ package com.olvera.dogadoptionfirst.di
 
 import android.content.Context
 import androidx.room.Room
+import com.olvera.dogadoptionfirst.data.room.DogDatabase
 import com.olvera.dogadoptionfirst.data.room.UserDatabase
 import dagger.Module
 import dagger.Provides
@@ -12,7 +13,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object UserDatabaseModule {
+object DatabaseModule {
 
     @Provides
     fun provideUserDb(@ApplicationContext context: Context) = Room.databaseBuilder(
@@ -22,7 +23,18 @@ object UserDatabaseModule {
     ).allowMainThreadQueries().fallbackToDestructiveMigration().build()
 
     @Provides
+    fun provideDogDb(@ApplicationContext context: Context) = Room.databaseBuilder(
+        context,
+        DogDatabase::class.java,
+        "dog_database"
+    ).allowMainThreadQueries().fallbackToDestructiveMigration().build()
+
+    @Provides
     @Singleton
     fun provideUserDao(userDatabase: UserDatabase) = userDatabase.userDao()
+
+    @Provides
+    @Singleton
+    fun provideDogDao(dogDatabase: DogDatabase) = dogDatabase.dogDao()
 
 }

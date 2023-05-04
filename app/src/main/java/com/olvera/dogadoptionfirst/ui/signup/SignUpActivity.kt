@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
+import com.olvera.dogadoptionfirst.R
+import com.olvera.dogadoptionfirst.config.AppPrefs
 import com.olvera.dogadoptionfirst.R.string as AppText
 import com.olvera.dogadoptionfirst.databinding.ActivitySignUpBinding
 import com.olvera.dogadoptionfirst.model.domain.User
@@ -91,8 +93,30 @@ class SignUpActivity : AppCompatActivity() {
             })
 
             signUpBtn.setOnClickListener {
+
+                if (viewModel.nameIsEmpty(usernameText.text.toString())) {
+                    usernameEt.error = getString(AppText.empty_username)
+                    return@setOnClickListener
+                } else if (viewModel.emailIsEmpty(emailText.text.toString())) {
+                    emailEt.error = getString(AppText.empty_email)
+                    return@setOnClickListener
+                } else if (viewModel.phoneIsEmpty(phoneText.text.toString())) {
+                    phoneEt.error = getString(AppText.empty_phone_number)
+                    return@setOnClickListener
+                } else if (viewModel.passwordIsEmpty(passwordText.text.toString())) {
+                    passwordEt.error = getString(AppText.empty_password)
+                    return@setOnClickListener
+                } else if (viewModel.repeatPasswordIsEmpty(confirmPasswordText.text.toString())) {
+                    confirmPasswordEt.error = getString(AppText.empty_confirm_password)
+                    return@setOnClickListener
+                }
+
                 if (viewModel.getUser(emailText.text.toString()) > 0) {
-                    Toast.makeText(this@SignUpActivity, "ya existe", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@SignUpActivity,
+                        getString(R.string.user_already_exists),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     return@setOnClickListener
                 } else {
                     val user = User(
@@ -102,10 +126,16 @@ class SignUpActivity : AppCompatActivity() {
                         userPassword = passwordText.text.toString()
                     )
                     viewModel.addUser(user)
-                    Toast.makeText(this@SignUpActivity, "usuario creado", Toast.LENGTH_SHORT)
+                    Toast.makeText(
+                        this@SignUpActivity,
+                        getString(R.string.user_created),
+                        Toast.LENGTH_SHORT
+                    )
                         .show()
                     val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
                     startActivity(intent)
+                    AppPrefs(this@SignUpActivity).setUserName(user.userName)
+                    finish()
                 }
             }
 

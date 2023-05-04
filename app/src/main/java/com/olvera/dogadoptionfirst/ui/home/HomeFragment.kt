@@ -1,14 +1,18 @@
 package com.olvera.dogadoptionfirst.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.olvera.dogadoptionfirst.config.AppPrefs
 import com.olvera.dogadoptionfirst.databinding.FragmentHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
@@ -17,21 +21,37 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private lateinit var homeViewModel2: HomeViewModel
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        homeViewModel2 =
+            ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+
+        // aparezca el dogList
+        val dogList = binding.rvDogs
+        homeViewModel2.dogList.observe(viewLifecycleOwner) {
+            dogList.layoutManager = LinearLayoutManager(context)
+
+            dogList.adapter = HomeAdapter(it) { dog ->
+                Log.i("DOGI: ", "onCreateView: ${dog.name}")
+                homeViewModel2.insertDog(dog)
+                homeViewModel2.addDogToUser(
+                    AppPrefs(requireContext()).getEmail().toString(),
+                    dog.id,
+                    dog.name,
+                    dog.imageUrl,
+                )
+            }
         }
+
+
         return root
     }
 
