@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.olvera.dogadoptionfirst.config.AppPrefs
 import com.olvera.dogadoptionfirst.databinding.FragmentHomeBinding
@@ -29,7 +30,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val dogList = binding.rvDogs
+        val dogList = binding.rvNewDogs
         homeViewModel.dogList.observe(viewLifecycleOwner) {
             dogList.layoutManager = LinearLayoutManager(
                 requireContext(),
@@ -38,6 +39,20 @@ class HomeFragment : Fragment() {
             )
 
             dogList.adapter = HomeAdapter(it) { dog ->
+                homeViewModel.addDogToUser(
+                    AppPrefs(requireContext()).getEmail().toString(),
+                    dog.id,
+                    dog.name,
+                    dog.imageUrl,
+                    dog.age
+                )
+            }
+        }
+
+        val dogq = binding.rvAllDogs
+        homeViewModel.dogList.observe(viewLifecycleOwner) {
+            dogq.layoutManager = GridLayoutManager(requireContext(), 2)
+            dogq.adapter = HomeAdapter(it) { dog ->
                 homeViewModel.addDogToUser(
                     AppPrefs(requireContext()).getEmail().toString(),
                     dog.id,
