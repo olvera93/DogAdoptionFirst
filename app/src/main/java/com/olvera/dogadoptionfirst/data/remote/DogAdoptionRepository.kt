@@ -14,9 +14,9 @@ interface DogAdoptionRepository{
     suspend fun getUser(email: String): User
     suspend fun getUserCount(email: String): Int
     suspend fun getUserByEmailAndPassword(email: String, password: String): User
-    suspend fun insertDog(dog: Dog)
+    suspend fun insertDog(dog: List<Dog>)
 
-    suspend fun addDogToUser(email: String, dogId: Int, dogName: String, dogImage: String)
+    suspend fun addDogToUser(email: String, dogId: Int, dogName: String, dogImage: String, age: String)
 
 }
 
@@ -30,7 +30,7 @@ class DogAdoptionRepositoryImpl @Inject constructor(
     override suspend fun getUserByEmailAndPassword(email: String, password: String): User =
         userDao.getUserByEmailAndPassword(email, password)
 
-    override suspend fun insertDog(dog: Dog) = dogDao.insertDog(dog)
-    override suspend fun addDogToUser(email: String, dogId: Int, dogName: String, dogImage: String) = userDao.addDogToUser(email, dogId, dogName, dogImage)
+    override suspend fun insertDog(dog: List<Dog>) = dogDao.insertDog(dog)
+    override suspend fun addDogToUser(email: String, dogId: Int, dogName: String, dogImage: String, age: String) = userDao.addDogToUser(email, dogId, dogName, dogImage, age)
 }
 

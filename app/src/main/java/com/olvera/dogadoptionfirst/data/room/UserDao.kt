@@ -17,8 +17,8 @@ interface UserDao {
     suspend fun getUser(email: String): User
 
     // add dog to user
-    @Query("UPDATE users SET id = :dogId, name = :dogName, imageUrl = :dogImage WHERE userEmail = :email")
-    suspend fun addDogToUser(email: String, dogId: Int, dogName: String, dogImage: String)
+    @Query("UPDATE users SET id = :dogId, name = :dogName, imageUrl = :dogImage, age = :age WHERE userEmail = :email")
+    suspend fun addDogToUser(email: String, dogId: Int, dogName: String, dogImage: String, age: String)
 
     @Query("SELECT COUNT(*) FROM users WHERE userEmail = :email")
     fun getUserCount(email: String): Int
