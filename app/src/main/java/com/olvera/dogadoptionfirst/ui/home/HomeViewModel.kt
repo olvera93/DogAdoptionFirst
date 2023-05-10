@@ -52,9 +52,9 @@ class HomeViewModel @Inject constructor(
                     "Killer",
                     "https://pngfre.com/wp-content/uploads/1653719927749-961x1024.png",
                     appContext.resources.getString(R.string.dog_age, 8)
-                ),
-
                 )
+
+            )
     }
     val dogList: LiveData<List<Dog>> = _dogList
 

@@ -32,8 +32,8 @@ class HomeAdapter(
 
     class HomeViewHolder(var view: ItemDogBinding) : RecyclerView.ViewHolder(view.root) {
         fun bind(dog: Dog, onDogClick: (Dog) -> Unit) {
-            view.tvDogName.text = dog.name
-            view.tvDogAge.text = dog.age
+            view.tvDogName.text = dog.dogName
+            view.tvDogAge.text = dog.dogAge
 
             randomBackground(view.cardDog.background, true)
 

@@ -52,6 +52,8 @@
 
     <!-- Home -->
     <string name="dog_age"> %d months</string>
+    <string name="new_dogs">New dogs</string>
+    <string name="all_dogs">All dogs</string>
 
 
 

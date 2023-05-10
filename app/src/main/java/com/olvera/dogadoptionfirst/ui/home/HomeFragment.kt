@@ -41,10 +41,10 @@ class HomeFragment : Fragment() {
             dogList.adapter = HomeAdapter(it) { dog ->
                 homeViewModel.addDogToUser(
                     AppPrefs(requireContext()).getEmail().toString(),
-                    dog.id,
-                    dog.name,
+                    dog.dogId,
+                    dog.dogName,
                     dog.imageUrl,
-                    dog.age
+                    dog.dogAge
                 )
             }
         }
@@ -55,10 +55,10 @@ class HomeFragment : Fragment() {
             dogq.adapter = HomeAdapter(it) { dog ->
                 homeViewModel.addDogToUser(
                     AppPrefs(requireContext()).getEmail().toString(),
-                    dog.id,
-                    dog.name,
+                    dog.dogId,
+                    dog.dogName,
                     dog.imageUrl,
-                    dog.age
+                    dog.dogAge
                 )
             }
         }
