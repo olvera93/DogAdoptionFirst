@@ -50,6 +50,11 @@
     <string name="user_not_exists">User does not exist</string>
     <string name="suscessful_login">Successful login</string>
 
+    <!-- Home -->
+    <string name="dog_age"> %d months</string>
+    <string name="new_dogs">New dogs</string>
+    <string name="all_dogs">All dogs</string>
+
 
 
     <!-- TODO: Remove or change this placeholder text -->

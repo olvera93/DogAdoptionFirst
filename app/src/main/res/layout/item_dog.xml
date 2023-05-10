@@ -14,13 +14,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginEnd="2dp"
+
         android:orientation="horizontal">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardDog"
-            android:layout_width="200dp"
+            android:layout_width="170dp"
             android:layout_height="250dp"
             android:layout_margin="10dp"
+            android:backgroundTint="@color/colorPrimary"
             app:cardElevation="10dp"
             app:cardCornerRadius="10dp"
             >
@@ -30,52 +32,80 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
+
                 >
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/imageDog"
-                    android:layout_width="150dp"
+                    android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_margin="8dp"
                     android:src="@drawable/ic_launcher_background"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/tvDogName"
-                    android:layout_width="wrap_content"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardDogInfo"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="Dog name"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.61" />
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintEnd_toEndOf="@+id/imageDog"
+                    app:layout_constraintStart_toStartOf="@id/imageDog"
+                    app:layout_constraintTop_toBottomOf="@+id/imageDog"
+                    >
 
-                <TextView
-                    android:id="@+id/tvDogAge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:layout_marginStart="39dp"
-                    android:text="Dog Age"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/tvDogName"
-                    app:layout_constraintTop_toBottomOf="@+id/tvDogName"
-                    app:layout_constraintBottom_toTopOf="@+id/imageDog"
-                    app:layout_constraintVertical_bias="0.058" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/lytDogInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_marginTop="4dp"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="@+id/cardDogInfo"
+                        app:layout_constraintStart_toStartOf="@id/cardDogInfo"
+                        app:layout_constraintTop_toBottomOf="@+id/cardDogInfo"
+
+                        >
+
+                        <TextView
+                            android:id="@+id/tvDogName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="Dog name"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.279"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvDogAge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:layout_marginStart="39dp"
+                            android:layout_marginEnd="90dp"
+                            android:text="Dog Age"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/tvDogName"
+                            app:layout_constraintHorizontal_bias="0.336"
+                            app:layout_constraintStart_toStartOf="@+id/tvDogName"
+                            app:layout_constraintTop_toBottomOf="@+id/tvDogName"
+                            app:layout_constraintVertical_bias="0.216" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

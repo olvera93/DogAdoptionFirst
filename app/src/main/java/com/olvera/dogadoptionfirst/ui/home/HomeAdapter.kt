@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.olvera.dogadoptionfirst.R
 import com.olvera.dogadoptionfirst.databinding.ItemDogBinding
 import com.olvera.dogadoptionfirst.model.domain.Dog
+import com.olvera.dogadoptionfirst.util.randomBackground
 
 class HomeAdapter(
     private val dogList: List<Dog>,
@@ -31,8 +32,15 @@ class HomeAdapter(
 
     class HomeViewHolder(var view: ItemDogBinding) : RecyclerView.ViewHolder(view.root) {
         fun bind(dog: Dog, onDogClick: (Dog) -> Unit) {
-            view.tvDogName.text = dog.name
+            view.tvDogName.text = dog.dogName
+            view.tvDogAge.text = dog.dogAge
+
+            randomBackground(view.cardDog.background, true)
+
             Glide.with(view.root.context)
+                .asBitmap()
+                .placeholder(R.drawable.ic_image)
+                .error(R.drawable.ic_image_not_supported)
                 .load(dog.imageUrl)
                 .into(view.imageDog)
             view.root.setOnClickListener {

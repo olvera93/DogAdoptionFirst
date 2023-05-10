@@ -9,10 +9,10 @@ import androidx.room.Query
 @Dao
 interface DogDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertDog(dog: Dog)
+    @Insert(onConflict = OnConflictStrategy.NONE)
+    suspend fun insertDog(dog: List<Dog>)
 
-    @Query("SELECT * FROM dogs WHERE id = :id")
+    @Query("SELECT * FROM dogs WHERE dogId = :id")
     suspend fun getDog(id: Int): Dog
 
 

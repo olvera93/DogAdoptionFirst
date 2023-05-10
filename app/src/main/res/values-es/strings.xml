@@ -52,6 +52,12 @@
     <string name="user_not_exists">Usuario no existe</string>
     <string name="suscessful_login">Inicio de sesión correcto</string>
 
+    <!-- Home -->
+    <string name="dog_age"> %d meses</string>
+    <string name="new_dogs">Nuevos Perros</string>
+    <string name="all_dogs">Todos los Perros</string>
+
+
 
 
     <!-- TODO: Remove or change this placeholder text -->
