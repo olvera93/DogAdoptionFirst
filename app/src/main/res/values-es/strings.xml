@@ -64,6 +64,11 @@
     <string name="menu_settings">Configuración</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
 
+    <!-- User Detail -->
+    <string name="logout">Cerrar Sesión</string>
+    <string name="adopted_dogs">%s fue adoptado exitosamente</string>
+
+    <string name="title_activity_login">LoginActivity</string>
 
 
 

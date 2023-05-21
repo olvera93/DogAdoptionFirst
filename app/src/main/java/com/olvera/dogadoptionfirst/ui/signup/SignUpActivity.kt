@@ -134,7 +134,7 @@ class SignUpActivity : AppCompatActivity() {
                         .show()
                     val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
                     startActivity(intent)
-                    AppPrefs(this@SignUpActivity).setUserName(user.userName)
+                    user.userName?.let { it1 -> AppPrefs(this@SignUpActivity).setUserName(it1) }
                     finish()
                 }
             }

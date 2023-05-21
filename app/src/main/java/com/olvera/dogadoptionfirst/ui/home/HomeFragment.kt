@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
+import com.olvera.dogadoptionfirst.R
 import com.olvera.dogadoptionfirst.config.AppPrefs
 import com.olvera.dogadoptionfirst.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -46,6 +48,11 @@ class HomeFragment : Fragment() {
                     dog.imageUrl,
                     dog.dogAge
                 )
+                Snackbar.make(
+                    requireView(),
+                    getString(R.string.adopted_dogs, dog.dogName),
+                    Snackbar.LENGTH_SHORT
+                ).show()
             }
         }
 
@@ -60,6 +67,11 @@ class HomeFragment : Fragment() {
                     dog.imageUrl,
                     dog.dogAge
                 )
+                Snackbar.make(
+                    requireView(),
+                    getString(R.string.adopted_dogs, dog.dogName),
+                    Snackbar.LENGTH_SHORT
+                ).show()
             }
         }
 

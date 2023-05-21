@@ -55,6 +55,11 @@
     <string name="new_dogs">New dogs</string>
     <string name="all_dogs">All dogs</string>
 
+    <!-- User -->
+    <string name="logout">Log out</string>
+    <string name="adopted_dogs">%s was adopted successful!</string>
+
+
 
 
 
