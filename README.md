@@ -4,17 +4,14 @@
 
 #  Nuevas funcionalidades 🛒
 
- - Los datos del usuario se guardan en una base de datos en la nube (Firebase)
- - Las transiciones entre fragments y Activities
+ - Los datos del usuario se guardan en una base de datos local
  - El usuario puede navegar entre pantallas de una manera intuitiva con
    la implementación de NavBar
  - Se agrego compatibilidad con temas Dark y Light
- - Se añadieron notificaciones (push notifications)
- - El usuario se puede registrar mediante Firebase Authentication con
-   correo o iniciando sesión mediante una cuenta de Google
- - Se podrá monitorear errores de la aplicación mediante Crashlytics Se
-   agrego el uso de la cámara del dispositivo la cual permitirá generar
-   el avatar de la cuenta, por medio de una foto
+ - Se utilizó MVVM
+ - Hilt
+ - Retrofit
+ - Lottie
 
 <div style="text-align: justify;">
 
