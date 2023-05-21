@@ -27,7 +27,6 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonPrev"
-            style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -36,6 +35,8 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/secondary_button_round"
             android:text="Action button"
+            android:textColor="@color/colorPrimary"
+
             android:textAllCaps="false"
             app:cornerRadius="24dp"
             app:layout_constraintBottom_toBottomOf="parent"

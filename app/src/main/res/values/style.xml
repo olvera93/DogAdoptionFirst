@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.Theme.DogAdoptionFirst" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+    </style>
+
+    <style name="Theme.DogAdoptionFirst" parent="Base.Theme.DogAdoptionFirst" />
+
+    <style name="Theme.DogAdoptionFirst.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.DogAdoptionFirst.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.DogAdoptionFirst.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>
