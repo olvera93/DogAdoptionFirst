@@ -8,6 +8,10 @@ import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 import com.olvera.dogadoptionfirst.databinding.OnboardingPageFragmentBinding
 import com.olvera.dogadoptionfirst.model.domain.OnBoarding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class OnBoardingPageFragment : Fragment() {
 
@@ -63,12 +67,22 @@ class OnBoardingPageFragment : Fragment() {
     private fun setup(page: OnBoarding) {
 
         context?.let { context ->
-            // Data
-            binding.imageViewOnboarding.setImageResource(page.image)
+            startAnimationCoroutine()
             binding.textViewOnboardingTitle.text = context.getString(page.title)
             binding.textViewOnboardingBody.text = context.getString(page.body)
         }
 
+    }
+
+    private fun startAnimationCoroutine() {
+        CoroutineScope(Dispatchers.IO).launch {
+            withContext(Dispatchers.IO) {
+                binding.animationView.frame = 60
+                binding.animationView.setAnimation(page!!.image)
+                binding.animationView.progress = 0f
+            }
+            binding.animationView.playAnimation()
+        }
     }
 
 }
